@@ -1,0 +1,29 @@
+services:
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ai-websec-backend:latest
+    container_name: ai-websec-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/data:/app/data
+    restart: unless-stopped
+
+  proxy:
+    build:
+      context: .
+      dockerfile: backend/proxy/Dockerfile
+    image: ai-websec-proxy:latest
+    container_name: ai-websec-proxy
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend/data:/app/data
+      - mitmproxy-ca:/root/.mitmproxy
+    restart: unless-stopped
+
+volumes:
+  mitmproxy-ca:
