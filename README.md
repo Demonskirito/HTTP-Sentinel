@@ -12,9 +12,9 @@
 - Proxy：mitmproxy 9.0.1
 - Deployment：Docker + Docker Compose
 
-**1. 快速启动**
+**快速启动**
 
-`1. 启动 Backend 和 Proxy`
+1.启动 Backend 和 Proxy
 
 在项目根目录执行：
 
@@ -28,7 +28,7 @@
 
 `docker compose logs -f`
 
-**2. 启动前端**
+2. 启动前端
 
 进入前端目录：
 
